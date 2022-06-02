@@ -2,12 +2,13 @@
 
 A simple example running
 [spectral-cli](https://github.com/stoplightio/spectral)
-on docker.
+on docker to validade using default
+[OpenAPI Rules](https://meta.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules).
 
 ```bash
 git clone git@github.com:rafaelbmateus/stoplight-spectral-cli.git
 cd stoplight-spectral-cli.git
-docker run --rm -it -v $(pwd):/tmp stoplight/spectral lint --ruleset "/tmp/.spectral.yaml" "/tmp/file.yaml"
+docker run --rm -it -v $(pwd):/tmp stoplight/spectral lint --ruleset "/tmp/.spectral.yaml" "/tmp/openapi.yaml"
 ```
 
 Output:
