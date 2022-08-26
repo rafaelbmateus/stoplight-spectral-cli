@@ -8,7 +8,7 @@ on docker to validade using default
 ```bash
 docker run --rm -it -v $(pwd):/tmp stoplight/spectral lint \
   --ruleset "/tmp/.spectral.yaml" \
-  "/tmp/openapi.yaml"
+  "/tmp/docs/petstore.yaml"
 ```
 
 Output:

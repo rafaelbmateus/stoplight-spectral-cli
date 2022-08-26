@@ -1,15 +1,16 @@
-name: Guideline API analysis using spectral
+name: Run Spectral on Pull Requests
 
 on:
+  - pull_request
+
   workflow_dispatch:
 
 jobs:
   build:
+    name: Run Spectral
     runs-on: ubuntu-latest
-    container:
-      image: stoplight/spectral
-      options: -v ${{ github.workspace }}:/tmp
-
     steps:
-      - name: Run linter
-        run: lint --ruleset /tmp/.spectral.yaml /tmp/openapi.yaml
+      - uses: actions/checkout@v2
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'docs/api/*.yaml'
