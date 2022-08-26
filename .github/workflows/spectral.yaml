@@ -1,0 +1,15 @@
+name: Guideline API analysis using spectral
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: stoplight/spectral
+      options: -v ${{ github.workspace }}:/tmp
+
+    steps:
+      - name: Run linter
+        run: lint --ruleset /tmp/.spectral.yaml /tmp/openapi.yaml
